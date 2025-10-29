@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react'
 import { HeroSection as HeroSectionView, type HeroActionItem, type HeroNavItem } from '../../../../components/HeroSection'
 import heroBackground from './assets/image.png'
 import logo from './assets/logo.svg'
-import badgeFranchise from '../../../home/components/HeroSection/assets/badgeFranchise.svg'
+import oneClogo from './assets/oneClogo.svg'
 
 interface HeroSectionProps {
   backHref?: string
@@ -45,7 +45,7 @@ export function HeroSection({ backHref = '/' }: HeroSectionProps) {
       navItems={navItems}
       badge={{
         label: 'Компания имеет статус 1С:Франчайзи',
-        icon: <img src={badgeFranchise} alt="Статус 1С:Франчайзи" className="h-5 w-5" />,
+        icon: <img src={oneClogo} alt="Статус 1С:Франчайзи" className="h-6 w-6" />,
       }}
       actions={actions}
       logo={

@@ -1,4 +1,8 @@
 import { Link } from 'react-router-dom'
+import informationSystemsIcon from './assets/information-systems.svg'
+import systemEngineeringIcon from './assets/system-engineering.svg'
+import rightsProtectionIcon from './assets/rights-protection.svg'
+import trainingCenterIcon from './assets/training-center.svg'
 
 export type CompanyDetails = {
   hero: {
@@ -29,6 +33,7 @@ export type Company = {
   slug: string
   status?: 'coming-soon'
   details?: CompanyDetails
+  icon?: string
 }
 
 export const companies: Company[] = [
@@ -37,6 +42,7 @@ export const companies: Company[] = [
     description:
       'Разработка цифровых платформ, интеграция 1С и цифровая трансформация процессов в ветеранских компаниях.',
     slug: 'information-systems',
+    icon: informationSystemsIcon,
     details: {
       hero: {
         badgeLabel: 'Специализация',
@@ -139,18 +145,21 @@ export const companies: Company[] = [
     name: 'ООО «Ветеран. Системный инжиниринг»',
     description: 'Инжиниринговые решения и сопровождение проектов для компаний с ветеранским коллективом.',
     slug: 'system-engineering',
+    icon: systemEngineeringIcon,
   },
   {
     name: 'ООО «Ветеран. Защита интересов»',
     description:
       'Правовая поддержка, защита прав и представление интересов ветеранов и их семей, партнёрство с юристами высокой квалификации.',
     slug: 'rights-protection',
+    icon: rightsProtectionIcon,
   },
   {
     name: 'Учебный центр',
     description: 'В активном запуске',
     slug: 'training-center',
     status: 'coming-soon',
+    icon: trainingCenterIcon,
   },
 ]
 
@@ -163,7 +172,7 @@ const companyRouteMap: Record<string, string> = {
 
 export function GroupSection() {
   return (
-    <section className="bg-gradient-to-b from-forest-900 to-forest-800">
+    <section className="bg-[#4F5A4A]">
       <div className="mx-auto max-w-6xl px-6 py-8 lg:px-12 lg:py-12">
         <h2 className="text-3xl font-semibold text-white lg:text-4xl">Наша группа компаний объединяет</h2>
         <div className="mt-5 space-y-4">
@@ -191,7 +200,7 @@ export function GroupSection() {
                           : 'border-bronze/60 bg-bronze/10 text-bronze'
                       }`}
                     >
-                      □
+                      {company.icon ? <img src={company.icon} alt="" className="h-4 w-4" aria-hidden="true" /> : '□'}
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white/90">{company.name}</h3>

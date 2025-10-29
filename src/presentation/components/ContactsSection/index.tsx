@@ -7,7 +7,7 @@ export function ContactsSection({ className, contentClassName }: ContactsSection
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contacts" className={`border-t border-forest-800/80 bg-forest-950 ${className ?? ''}`.trim()}>
+    <footer id="contacts" className={`border-t border-forest-800/80 bg-[#202020] ${className ?? ''}`.trim()}>
       <div className={`mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-20 ${contentClassName ?? ''}`.trim()}>
         <h2 className="text-2xl font-semibold text-white lg:text-3xl">Контакты</h2>
         <div className="mt-8 grid gap-10 md:grid-cols-3">

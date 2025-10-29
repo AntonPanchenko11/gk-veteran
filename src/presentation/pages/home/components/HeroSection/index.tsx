@@ -39,10 +39,13 @@ export function HeroSection() {
       <HeroSectionView
         title={env.appName}
         description="Помогаем ветеранам выстраивать бизнес, усиливать личные навыки и перезагружать карьеру в мирной жизни, чтобы каждый шаг в новом пути был осознанным и уверенным."
+        backgroundColor="#4F5A4A"
         backgroundImage={heroBackground}
+        backgroundSize="80%"
+        backgroundPosition="bottom right"
+        backgroundRepeat="no-repeat"
         navItems={navItems}
         actions={actions}
-        containerClassName="py-5 lg:py-8"
         logo={
           <div className="flex h-[46px] w-[160px] items-center justify-center">
             <img src={logo} alt="Ветеран. Группа компаний" className="h-full w-auto" />

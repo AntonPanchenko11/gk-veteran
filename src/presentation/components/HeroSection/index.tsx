@@ -30,7 +30,11 @@ export interface HeroBadge {
 export interface HeroSectionProps {
   title: string
   description?: string
-  backgroundImage: string
+  backgroundImage?: string
+  backgroundColor?: string
+  backgroundSize?: string
+  backgroundPosition?: string
+  backgroundRepeat?: string
   showBackButton?: boolean
   backHref?: string
   backLabel?: string
@@ -87,8 +91,8 @@ function HeroBadgeView({ badge }: { badge?: HeroBadge }) {
   }
 
   return (
-    <div className="inline-flex items-center gap-3 rounded-[14px] border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white">
-      {badge.icon ? <span className="flex h-5 w-5 items-center justify-center">{badge.icon}</span> : null}
+    <div className="inline-flex items-center gap-3 rounded-[16px] border border-white/25 bg-white/10 px-5 py-2.5 text-[0.8rem] font-semibold uppercase tracking-[0.35em] text-white">
+      {badge.icon ? <span className="flex h-6 w-6 items-center justify-center">{badge.icon}</span> : null}
       <span>{badge.label}</span>
       {badge.note ? (
         <span className="rounded-[12px] border border-bronze/40 bg-bronze/15 px-3 py-1 text-[0.65rem] tracking-[0.3em] text-bronze/90">
@@ -134,6 +138,10 @@ export function HeroSection({
   title,
   description,
   backgroundImage,
+  backgroundColor,
+  backgroundSize,
+  backgroundPosition,
+  backgroundRepeat,
   showBackButton,
   backHref = '/',
   backLabel = '← Назад',
@@ -157,9 +165,15 @@ export function HeroSection({
     <header
       className={mergeClassNames('relative min-h-[720px] overflow-hidden text-white', className)}
       style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundColor: backgroundColor ?? undefined,
+        ...(backgroundImage
+          ? {
+              backgroundImage: `url(${backgroundImage})`,
+              backgroundSize: backgroundSize ?? 'cover',
+              backgroundPosition: backgroundPosition ?? 'center',
+              backgroundRepeat: backgroundRepeat ?? 'no-repeat',
+            }
+          : {}),
       }}
     >
       <div className="absolute inset-0">
