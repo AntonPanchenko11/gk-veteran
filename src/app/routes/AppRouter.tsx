@@ -1,18 +1,20 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { HomePage } from '../../presentation/pages/home/HomePage'
-import { AboutPage } from '../../presentation/pages/about/AboutPage'
-import { PrinciplesPage } from '../../presentation/pages/principles/PrinciplesPage'
-import { StoriesPage } from '../../presentation/pages/stories/StoriesPage'
-import { ContactsPage } from '../../presentation/pages/contacts/ContactsPage'
+import {
+  CompanyInformationSystemsPage
+} from '../../presentation/pages/companyInformationSystems'
+import { CompanyProtectionOfInterestsPage } from '../../presentation/pages/companyProtectionOfInterests'
+import { CompanyTrainingCenterPage } from '../../presentation/pages/companyTrainingCenter'
+import { CompanySystemsEngineeringPage } from '../../presentation/pages/companySystemsEngineering'
 
 export function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/principles" element={<PrinciplesPage />} />
-      <Route path="/stories" element={<StoriesPage />} />
-      <Route path="/contacts" element={<ContactsPage />} />
+      <Route path="/companies/information-systems" element={<CompanyInformationSystemsPage />} />
+      <Route path="/companies/system-engineering" element={<CompanySystemsEngineeringPage />} />
+      <Route path="/companies/rights-protection" element={<CompanyProtectionOfInterestsPage />} />
+      <Route path="/companies/training-center" element={<CompanyTrainingCenterPage />} />      
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

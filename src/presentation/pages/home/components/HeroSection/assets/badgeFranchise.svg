@@ -1,0 +1,5 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroBadgeFranchiseTitle">
+  <title id="heroBadgeFranchiseTitle">Статус 1С:Франчайзи</title>
+  <rect width="40" height="40" rx="8" fill="#FFCC00"/>
+  <path d="M23.5 13.5c2.2 0 3.9.9 5.2 2.2.3.3.3.8 0 1.1l-1.5 1.5c-.3.3-.8.3-1.1 0-.8-.8-1.7-1.2-2.7-1.2-1.9 0-3.4 1.5-3.4 3.5v6.2c0 .4-.3.8-.8.8h-2.1c-.4 0-.8-.3-.8-.8V20.6c0-3.9 3-7.1 7.2-7.1Zm-8.5 1.8V26c0 .4-.3.8-.8.8h-2.1c-.4 0-.8-.3-.8-.8v-9c0-.4.3-.8.8-.8h2.1c.4 0 .8.3.8.8Z" fill="#D7282F"/>
+</svg>

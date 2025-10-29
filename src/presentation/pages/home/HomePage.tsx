@@ -1,21 +1,21 @@
 import { HeroSection } from './components/HeroSection'
-import { PrinciplesSection } from './components/PrinciplesSection'
+import { AboutSection } from './components/AboutSection'
 import { MissionsSection } from './components/MissionsSection'
 import { GroupSection } from './components/GroupSection'
 import { ValuesSection } from './components/ValuesSection'
 import { StoriesSection } from './components/StoriesSection'
-import { ContactsSection } from './components/ContactsSection'
+import { ContactsSection } from '../../components/ContactsSection'
 
 export function HomePage() {
   return (
     <div className="bg-moss text-forest-100">
       <HeroSection />
-      <PrinciplesSection />
+      <AboutSection />
       <MissionsSection />
       <GroupSection />
       <ValuesSection />
       <StoriesSection />
-      <ContactsSection />
+      <ContactsSection contentClassName="py-7 lg:py-10" />
     </div>
   )
 }
