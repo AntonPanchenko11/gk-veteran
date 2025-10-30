@@ -20,5 +20,5 @@ const EXTRAS_ITEMS: ExtrasSectionItem[] = [
 ]
 
 export function ExtrasSection() {
-  return <ExtrasSectionView heading="Дополнительные функции" items={EXTRAS_ITEMS} />
+  return <ExtrasSectionView id="extras" heading="Дополнительные функции" items={EXTRAS_ITEMS} />
 }

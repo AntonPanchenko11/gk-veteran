@@ -6,10 +6,24 @@
 
 @layer base {
   html {
-    @apply bg-moss text-forest-50;
+    @apply bg-surface-noir font-sans text-forest-50;
   }
 
   body {
-    @apply min-h-screen bg-moss font-sans antialiased;
+    @apply min-h-screen bg-surface-noir antialiased;
+  }
+}
+
+@layer components {
+  .heading-section {
+    @apply font-sans text-[1.3rem] font-semibold uppercase tracking-tight text-white lg:text-[1.85rem];
+  }
+
+  .heading-section-subtitle {
+    @apply font-sans text-sm font-medium uppercase tracking-[0.2em] text-white/65;
+  }
+
+  .body-text {
+    @apply font-sans text-sm leading-relaxed text-white/80;
   }
 }

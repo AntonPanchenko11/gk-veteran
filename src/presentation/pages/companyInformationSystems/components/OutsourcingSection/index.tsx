@@ -1,11 +1,11 @@
 const BASE_CARD_CLASSES =
-  'relative flex h-full flex-col justify-between gap-5 rounded-3xl border p-6 text-sm leading-relaxed text-white/80 transition'
+  'relative flex h-full flex-col justify-between gap-5 rounded-3xl border p-6 text-white/80 transition bg-surface-base'
 
 const HIGHLIGHT_CARD_CLASSES =
-  'border-bronze/60 bg-gradient-to-br from-[#2f352c] via-[#252b24] to-[#1d211c] shadow-[0_30px_70px_-50px_rgba(0,0,0,0.85)]'
+  'border-highlight/80 shadow-[0_30px_70px_-50px_rgba(0,0,0,0.85)]'
 
 const NEUTRAL_CARD_CLASSES =
-  'border-white/5 bg-[#252824] shadow-[0_25px_60px_-45px_rgba(0,0,0,0.75)]'
+  'border-white/10 shadow-[0_25px_60px_-45px_rgba(0,0,0,0.75)]'
 
 type OutsourcingCard = {
   title: string
@@ -16,7 +16,7 @@ type OutsourcingCard = {
 
 const OUTSOURCING_CARDS: OutsourcingCard[] = [
   {
-    title: 'Продажа коробочных версий продуктов и лицензий к ним',
+    title: 'Продажа коробочных версий продуктов илицензий к ним',
     highlight: true,
     footer: '',
   },
@@ -39,7 +39,7 @@ const OUTSOURCING_CARDS: OutsourcingCard[] = [
     title: 'Аудит, устранение ошибок в бухгалтерском и налоговом учете',
   },
   {
-    title: 'Настройка Честного знака, Меркурия, электронных подписей и других ГИС',
+    title: 'Настройка Честного знака, Меркурия, электронных подписей др. ГИСами',
   },
   {
     title: 'Настройка и подключение электронной отчетности',
@@ -56,15 +56,15 @@ export function OutsourcingSection() {
     <section
       id="outsourcing"
       aria-labelledby="outsourcing-heading"
-      className="relative bg-[#4F5A4A] text-white"
+      className="relative bg-surface-section text-white"
     >
-      <div className="relative mx-auto max-w-6xl space-y-10 px-6 py-16 lg:px-12 lg:py-24">
+      <div className="relative mx-auto max-w-6xl space-y-10 px-6 py-10 lg:px-12 lg:py-14">
         <header className="space-y-3">
-          <h3 id="outsourcing-heading" className="text-3xl font-semibold uppercase tracking-tight">
+          <h3 id="outsourcing-heading" className="heading-section">
             Аутсорсинг
           </h3>
-          <p className="max-w-3xl text-sm font-medium uppercase tracking-[0.2em] text-white/65">
-            Поддержка типовых решений 1С для автоматизации учета
+          <p className="body-text max-w-3xl">
+            Поддержка типовых решений 1С для автоматизации учёта          
           </p>
         </header>
 
@@ -78,13 +78,13 @@ export function OutsourcingSection() {
               >
                 <div className="space-y-3">
                   <h4 className="text-base font-semibold text-white">{item.title}</h4>
-                  {item.description ? <p className="text-white/70">{item.description}</p> : null}
+                  {item.description ? <p className="body-text text-white/85">{item.description}</p> : null}
                 </div>
 
                 <div className="space-y-4">
-                  {item.footer ? <p className="text-sm font-semibold text-bronze">{item.footer}</p> : null}
+                  {item.footer ? <p className="text-sm font-semibold text-highlight">{item.footer}</p> : null}
                   {isHighlighted ? (
-                    <span className="block h-[2px] w-3/4 rounded-full bg-gradient-to-r from-bronze/80 to-transparent" />
+                    <span className="block h-[2px] w-3/4 rounded-full bg-gradient-to-r from-highlight/80 to-transparent" />
                   ) : null}
                 </div>
               </article>

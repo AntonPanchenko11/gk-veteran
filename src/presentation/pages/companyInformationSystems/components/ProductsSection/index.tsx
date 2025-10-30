@@ -2,7 +2,6 @@ const PRODUCTS = [
   {
     title: 'ДокПоток',
     description: 'Экосистема решений для автоматизации и ускорения гибридного документооборота',
-    layout: 'col-span-2',
   },
   {
     title: 'По отрасли',
@@ -15,7 +14,6 @@ const PRODUCTS = [
   {
     title: 'Велес',
     description: 'ИИ для компьютерного зрения (распознавание документов) и поддержка принятия решений',
-    layout: 'col-span-2',
   },
   {
     title: 'По функциональной задаче',
@@ -31,38 +29,41 @@ const PRODUCTS = [
 ]
 
 const CARD_BASE_CLASSES =
-  'flex h-full flex-col justify-between rounded-[28px] border border-bronze/30 bg-[#1E1F1D] p-6 text-sm text-white/80 shadow-[0_30px_70px_-50px_rgba(0,0,0,0.85)]'
+  'flex h-full flex-col justify-between rounded-[28px] border border-highlight/80 p-8 text-white/80'
 
 export function ProductsSection() {
   return (
-    <section className="relative bg-[#1D1E1C] text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_70%)]" />
-      <div className="relative mx-auto max-w-6xl space-y-10 px-6 py-16 lg:px-12 lg:py-24">
+    <section id="products" className="relative bg-surface-deep text-white">
+      <div className="absolute inset-0 bg-surface-base" />
+      <div className="relative mx-auto max-w-6xl space-y-10 px-6 py-10 lg:px-12 lg:py-14">
         <header className="space-y-3">
-          <h3 className="text-3xl font-semibold uppercase tracking-tight">Продуктовая IT-разработка</h3>
-          <p className="max-w-2xl text-sm text-white/70">Собственные решения на базе платформы 1С</p>
+          <h3 className="heading-section">Продуктовая IT-разработка</h3>
+          <p className="body-text max-w-2xl">Собственные решения на базе платформы 1С</p>
         </header>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {PRODUCTS.map((product) => (
             <article
               key={product.title}
-              className={`${CARD_BASE_CLASSES} ${product.layout === 'col-span-2' ? 'lg:col-span-2' : ''}`}
+              className={CARD_BASE_CLASSES}
             >
-              <div className="space-y-3">
-                <h4 className="text-xl font-semibold text-white">{product.title}</h4>
-                {product.description ? <p className="text-white/70">{product.description}</p> : null}
+              <div className="space-y-4">
+                <h4 className="text-xl font-semibold text-white lg:text-[1.4rem]">{product.title}</h4>
+                {product.description ? <p className="body-text text-white/80">{product.description}</p> : null}
                 {product.list ? (
-                  <ul className="space-y-2 text-white/70">
+                  <ul className="space-y-2">
                     {product.list.map((item) => (
-                      <li key={item} className="pl-4 leading-relaxed before:absolute before:-ml-4 before:mt-[0.45rem] before:h-1 before:w-1 before:rounded-full before:bg-white/70 relative">
+                      <li
+                        key={item}
+                        className="body-text relative pl-5 before:absolute before:left-0 before:top-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-highlight/80"
+                      >
                         {item}
                       </li>
                     ))}
                   </ul>
                 ) : null}
               </div>
-              <span className="mt-6 block h-[2px] w-3/4 rounded-full bg-gradient-to-r from-bronze/70 to-transparent" />
+              <div className="mt-8 h-px w-full rounded-full bg-gradient-to-r from-highlight/70 via-transparent to-transparent" />
             </article>
           ))}
         </div>

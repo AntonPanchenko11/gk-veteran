@@ -36,35 +36,35 @@ export function ExtrasSection({
   return (
     <section
       id={id}
-      className={mergeClassNames('bg-[#4F5A4A] text-white', className)}
+      className={mergeClassNames('bg-surface-section text-white', className)}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
-      <div className={mergeClassNames('mx-auto max-w-6xl space-y-10 px-6 py-16 lg:px-12 lg:py-24', contentClassName)}>
+      <div className={mergeClassNames('mx-auto max-w-6xl space-y-10 px-6 py-10 lg:px-12 lg:py-14', contentClassName)}>
         <header className="space-y-3">
           <h3
             id={id ? `${id}-heading` : undefined}
-            className="text-3xl font-semibold uppercase tracking-tight"
+            className="heading-section"
           >
             {heading}
           </h3>
         </header>
 
-        <div className="divide-y divide-bronze/35 border border-bronze/35 rounded-[28px] bg-[#1f211d]/80 backdrop-blur-sm">
+        <div className="divide-y divide-highlight/80 border border-highlight/80 rounded-[28px] bg-surface-base">
           {items.map((item) => (
             <article
               key={item.id}
               className={mergeClassNames(
-                'flex flex-col gap-6 px-6 py-10 text-sm text-white/80 last:border-b-transparent lg:flex-row lg:items-start lg:justify-between lg:gap-10 lg:px-10',
+                'body-text flex flex-col gap-6 px-6 py-8 text-white last:border-b-transparent transition lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-10',
                 itemClassName
               )}
             >
               <div className="space-y-4 lg:max-w-3xl">
-                <h4 className="text-xl font-semibold text-white">{item.title}</h4>
-                <p className="leading-relaxed">{item.description}</p>
+                <h4 className="body-text text-lg font-semibold text-white">{item.title}</h4>
+                <p className="body-text text-white/80">{item.description}</p>
               </div>
               {item.icon ? (
-                <div className={mergeClassNames('flex shrink-0 items-center justify-center lg:justify-end', iconWrapperClassName)}>
-                  <div className="h-20 w-20 text-bronze lg:h-24 lg:w-24">{item.icon}</div>
+                <div className={mergeClassNames('flex shrink-0 items-center justify-center lg:h-full lg:justify-end', iconWrapperClassName)}>
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl text-highlight shadow-inner lg:h-24 lg:w-24">{item.icon}</div>
                 </div>
               ) : null}
             </article>

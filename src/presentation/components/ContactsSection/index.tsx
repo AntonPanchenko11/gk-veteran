@@ -7,20 +7,20 @@ export function ContactsSection({ className, contentClassName }: ContactsSection
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contacts" className={`border-t border-forest-800/80 bg-[#202020] ${className ?? ''}`.trim()}>
-      <div className={`mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-20 ${contentClassName ?? ''}`.trim()}>
-        <h2 className="text-2xl font-semibold text-white lg:text-3xl">Контакты</h2>
+    <footer id="contacts" className={`border-t border-highlight/20 bg-surface-base ${className ?? ''}`.trim()}>
+      <div className={`mx-auto max-w-6xl px-6 py-10 lg:px-12 lg:py-14 ${contentClassName ?? ''}`.trim()}>
+        <h2 className="heading-section text-2xl lg:text-3xl">Контакты</h2>
         <div className="mt-8 grid gap-10 md:grid-cols-3">
           <div>
-            <p className="text-sm text-forest-100/90">Телефон</p>
+            <p className="body-text">Телефон</p>
             <p className="mt-2 text-lg font-semibold text-white">8 000 000 00 00</p>
-            <p className="mt-6 text-sm text-forest-100/90">Email</p>
-            <a href="mailto:email@email.ru" className="mt-2 block text-lg font-semibold text-bronze">
+            <p className="mt-6 body-text">Email</p>
+            <a href="mailto:email@email.ru" className="mt-2 block text-lg font-semibold text-highlight">
               email@email.ru
             </a>
           </div>
 
-          <div className="space-y-4 text-sm text-forest-100/90">
+          <div className="space-y-4 body-text">
             <div>
               <p className="font-semibold text-white">ООО «Ветеран. Информационные системы»</p>
               <p>ИНН / КПП</p>
@@ -33,7 +33,7 @@ export function ContactsSection({ className, contentClassName }: ContactsSection
             </div>
           </div>
 
-          <div className="space-y-4 text-sm text-forest-100/90">
+          <div className="space-y-4 body-text">
             <div>
               <p className="font-semibold text-white">ООО «Ветеран. Системный инжиниринг»</p>
               <p>ИНН / КПП</p>
@@ -47,7 +47,7 @@ export function ContactsSection({ className, contentClassName }: ContactsSection
           </div>
         </div>
 
-        <p className="mt-10 text-xs text-forest-600">© {currentYear} Экосистема «Ветеран». Все права защищены.</p>
+        <p className="mt-10 text-xs text-white/40">© {currentYear} Экосистема «Ветеран». Все права защищены.</p>
       </div>
     </footer>
   )

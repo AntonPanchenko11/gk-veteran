@@ -1,5 +1,5 @@
 import { ContactsSection } from '../../components/ContactsSection'
-import { HeroSection } from './components/HeroSection'
+import { TopSection } from './components/TopSection'
 import { AboutSection } from './components/AboutSection'
 import { OutsourcingSection } from './components/OutsourcingSection'
 import { ProductsSection } from './components/ProductsSection'
@@ -8,8 +8,8 @@ import { ConclusionSection } from './components/ConclusionSection'
 
 export function CompanyInformationSystemsPage() {
   return (
-    <main className="min-h-screen bg-[#101612] text-forest-100">
-      <HeroSection />
+    <main className="min-h-screen bg-surface-noir text-white">
+      <TopSection />
       <AboutSection />
       <OutsourcingSection />
       <ProductsSection />

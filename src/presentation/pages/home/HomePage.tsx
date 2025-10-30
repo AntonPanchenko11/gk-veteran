@@ -1,4 +1,4 @@
-import { HeroSection } from './components/HeroSection'
+import { TopSection } from './components/TopSection'
 import { AboutSection } from './components/AboutSection'
 import { MissionsSection } from './components/MissionsSection'
 import { GroupSection } from './components/GroupSection'
@@ -8,14 +8,14 @@ import { ContactsSection } from '../../components/ContactsSection'
 
 export function HomePage() {
   return (
-    <div className="bg-moss text-forest-100">
-      <HeroSection />
+    <div className="bg-surface-noir text-forest-100">
+      <TopSection />
       <AboutSection />
       <MissionsSection />
       <GroupSection />
       <ValuesSection />
       <StoriesSection />
-      <ContactsSection contentClassName="py-7 lg:py-10" />
+      <ContactsSection />
     </div>
   )
 }

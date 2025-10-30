@@ -22,9 +22,9 @@ function SectionHeader({ heading, description, icon }: Pick<AboutSectionProps, '
   return (
     <header className="space-y-5 text-white">
       {icon ? <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/5">{icon}</div> : null}
-      <h2 className="text-3xl font-semibold uppercase tracking-tight lg:text-[2.65rem]">{heading}</h2>
+      <h2 className="heading-section">{heading}</h2>
       {description ? (
-        <p className="max-w-3xl text-sm leading-relaxed text-forest-100/80">{description}</p>
+        <p className="body-text max-w-3xl">{description}</p>
       ) : null}
     </header>
   )
@@ -32,11 +32,11 @@ function SectionHeader({ heading, description, icon }: Pick<AboutSectionProps, '
 
 function CardItem({ card }: { card: AboutSectionCard }) {
   return (
-    <article className="group relative flex h-full flex-col justify-between gap-5 overflow-hidden rounded-[26px] border border-white/10 bg-[#1b1f20] p-6 text-sm text-forest-100/85 shadow-[0_35px_70px_-40px_rgba(0,0,0,0.85)] transition-colors duration-300 hover:border-amber-400/60">
-      <div className="pointer-events-none absolute inset-0 rounded-[26px] border border-white/5 opacity-40" />
+    <article className="group relative flex h-full flex-col justify-between gap-5 overflow-hidden rounded-[26px] border border-white/10 bg-surface-base p-6 text-white/85 shadow-[0_35px_70px_-40px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-highlight hover:bg-surface-base/90">
+      <div className="pointer-events-none absolute inset-0 rounded-[26px] bg-gradient-to-b from-white/10 via-transparent to-transparent" />
       <div>
         <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-        <p className="mt-3 leading-relaxed text-forest-100/70">{card.description}</p>
+        <p className="body-text mt-3">{card.description}</p>
       </div>
       {card.icon ? (
         <div className="mt-6 flex justify-end">
@@ -75,9 +75,9 @@ export function AboutSection({
   const shouldRenderCardsHeading = Boolean(cardsHeading) && hasCards
 
   return (
-    <section id={id} className={`relative bg-[#202020] text-forest-100 ${className ?? ''}`.trim()}>
-      <div className="absolute inset-0 bg-[#202020]" />
-      <div className={`relative mx-auto max-w-6xl px-6 py-16 lg:px-12 lg:py-24 ${contentClassName ?? ''}`.trim()}>
+    <section id={id} className={`relative bg-surface-base text-white ${className ?? ''}`.trim()}>
+      <div className="absolute inset-0 bg-surface-base" />
+      <div className={`relative mx-auto max-w-6xl px-6 py-10 lg:px-12 lg:py-14 ${contentClassName ?? ''}`.trim()}>
         <div className="space-y-12">
           <SectionHeader heading={heading} description={description} icon={icon} />
 

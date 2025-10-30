@@ -1,13 +1,13 @@
 
-import { HeroSection } from './components/HeroSection'
+import { TopSection } from './components/TopSection'
 import { AboutSection } from './components/AboutSection'
 import { ConclusionSection } from './components/ConclusionSection'
 import { ContactsSection } from '../../components/ContactsSection'
 
 export function CompanyProtectionOfInterestsPage() {
   return (
-    <main className="min-h-screen bg-[#101612] text-forest-100">
-      <HeroSection />
+    <main className="min-h-screen bg-surface-noir text-white">
+      <TopSection />
       <AboutSection />
       <ConclusionSection />
       <ContactsSection />
