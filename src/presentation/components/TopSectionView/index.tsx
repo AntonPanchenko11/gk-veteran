@@ -1,4 +1,5 @@
-import { useState, type MouseEvent, type ReactNode } from 'react'
+import { useCallback, useState, type MouseEvent, type ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type ClassValue = string | undefined | null | false
 
@@ -188,6 +189,7 @@ export function TopSectionView({
 }: TopSectionViewProps) {
   const hasNavItems = Boolean(navItems && navItems.length > 0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   const handleToggleMenu = () => {
     if (!hasNavItems) {
@@ -198,6 +200,22 @@ export function TopSectionView({
   }
 
   const handleCloseMenu = () => setIsMenuOpen(false)
+
+  const handleBackClick = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault()
+
+      const canGoBack = typeof window.history.state?.idx === 'number' && window.history.state.idx > 0
+
+      if (canGoBack) {
+        navigate(-1)
+        return
+      }
+
+      navigate(backHref ?? '/', { replace: false })
+    },
+    [backHref, navigate]
+  )
 
   const overlayClasses = mergeClassNames(
     'absolute inset-0',
@@ -292,12 +310,13 @@ export function TopSectionView({
           <div className={mergeClassNames('flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-24', contentClassName)}>
             <div className="w-full space-y-8 text-white lg:basis-[60%] lg:max-w-[60%]">
               {showBackButton ? (
-                <a
-                  href={backHref}
+                <button
+                  type="button"
+                  onClick={handleBackClick}
                   className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.45em] text-white/70 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
                   {backLabel}
-                </a>
+                </button>
               ) : null}
 
               <div className="space-y-6">
