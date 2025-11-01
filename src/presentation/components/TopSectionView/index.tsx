@@ -29,8 +29,8 @@ export interface HeroBadge {
 }
 
 export interface TopSectionViewProps {
-  title: string
-  description?: string
+  title: ReactNode
+  description?: ReactNode
   backgroundImage?: string
   backgroundColor?: string
   backgroundSize?: string
@@ -144,7 +144,7 @@ function HeroActions({ actions = [] }: { actions?: HeroActionItem[] }) {
       {actions.map((action) => {
         const variant = action.variant ?? 'primary'
         const baseClasses =
-          'inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
+          'inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer'
         const variantClasses =
           variant === 'primary'
             ? 'border border-white/15 bg-white text-text-contrast shadow-[0_15px_45px_-25px_rgba(0,0,0,0.45)] hover:bg-highlight hover:text-text-contrast focus-visible:ring-white/60 focus-visible:ring-offset-transparent'
@@ -224,7 +224,7 @@ export function TopSectionView({
 
   return (
     <header
-      className={mergeClassNames('relative min-h-[720px] overflow-hidden text-white', className)}
+      className={mergeClassNames('relative min-h-screen overflow-hidden text-white', className)}
       style={{
         backgroundColor: backgroundColor ?? undefined,
         ...(backgroundImage
@@ -242,7 +242,7 @@ export function TopSectionView({
         <div className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-highlight/20 blur-[190px]" />
       </div>
       <div className={overlayClasses} />
-      <div className={`relative mx-auto flex min-h-[720px] w-full max-w-6xl flex-col px-6 py-10 lg:px-12 lg:py-14 ${containerClassName ?? ''}`.trim()}>
+      <div className={`relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 lg:px-12 lg:py-14 ${containerClassName ?? ''}`.trim()}>
         <HeroNavigation
           logo={logo}
           navItems={navItems}
@@ -321,9 +321,13 @@ export function TopSectionView({
 
               <div className="space-y-6">
                 <HeroBadgeView badge={badge} />
-                <h1 className="text-3xl font-semibold uppercase leading-tight text-white sm:text-[2.9rem]">{title}</h1>
+                <h1 className="text-xl font-semibold uppercase leading-tight text-white sm:text-[2.5rem]">
+                  {typeof title === 'string' ? <>{title}</> : title}
+                </h1>
                 {description ? (
-                  <p className="body-text max-w-xl text-base text-white/85 sm:text-lg">{description}</p>
+                  <div className="body-text max-w-xl text-base text-white/85 sm:text-lg">
+                    {typeof description === 'string' ? <>{description}</> : description}
+                  </div>
                 ) : null}
               </div>
 

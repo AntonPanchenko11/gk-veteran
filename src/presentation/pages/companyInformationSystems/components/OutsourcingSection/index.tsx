@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 const BASE_CARD_CLASSES =
   'relative flex h-full flex-col justify-between gap-5 rounded-3xl border p-6 text-white/80 transition bg-surface-base'
 
@@ -8,7 +10,8 @@ const NEUTRAL_CARD_CLASSES =
   'border-white/10 shadow-[0_25px_60px_-45px_rgba(0,0,0,0.75)]'
 
 type OutsourcingCard = {
-  title: string
+  id: string
+  title: ReactNode
   description?: string
   highlight?: boolean
   footer?: string
@@ -16,36 +19,90 @@ type OutsourcingCard = {
 
 const OUTSOURCING_CARDS: OutsourcingCard[] = [
   {
-    title: 'Продажа коробочных версий продуктов илицензий к ним',
+    id: 'boxed-products',
+    title: (
+      <>
+        <>Продажа коробочных версий продуктов </>
+        <>и лицензий к ним</>
+      </>
+    ),
     highlight: true,
     footer: '',
   },
   {
-    title: 'Предоставление облачных баз в аренду',
+    id: 'cloud-databases',
+    title: (
+      <>
+        <>Предоставление облачных баз </>
+        <>в аренду</>
+      </>
+    ),
     highlight: true,
     footer: '',
   },
   {
-    title: 'Обновление конфигураций',
+    id: 'config-updates',
+    title: (
+      <>
+        <>Обновление </>
+        <>конфигураций</>
+      </>
+    ),
     highlight: true,
   },
   {
-    title: 'Консультация по формированию текущей отчетности (хоз расчетной, бюджетной, налоговой)',
+    id: 'reporting-consulting',
+    title: (
+      <>
+        <>Консультация по формированию текущей отчетности </>
+        <>(хоз расчётной, бюджетной, налоговой)</>
+      </>
+    ),
   },
   {
-    title: 'Консультация по работе в типовых конфигурациях для бухгалтеров, менеджеров, операторов',
+    id: 'configuration-support',
+    title: (
+      <>
+        <>Консультация по работе в типовых конфигурациях </>
+        <>для бухгалтеров, менеджеров, операторов</>
+      </>
+    ),
   },
   {
-    title: 'Аудит, устранение ошибок в бухгалтерском и налоговом учете',
+    id: 'accounting-audit',
+    title: (
+      <>
+        <>Аудит, устранение ошибок </>
+        <>в бухгалтерском и налоговом учете</>
+      </>
+    ),
   },
   {
-    title: 'Настройка Честного знака, Меркурия, электронных подписей др. ГИСами',
+    id: 'integration-tools',
+    title: (
+      <>
+        <>Настройка Честного знака, Меркурия, электронных подписей </>
+        <>и других ГИС</>
+      </>
+    ),
   },
   {
-    title: 'Настройка и подключение электронной отчетности',
+    id: 'electronic-reporting',
+    title: (
+      <>
+        <>Настройка и подключение </>
+        <>электронной отчетности</>
+      </>
+    ),
   },
   {
-    title: '1С: Бухгалтерия Предприятия 3.0, 1С: ЗУП, 1С: БГУ, 1С: УНФ, 1С: УТ, 1С: КА и др.',
+    id: 'onec-products',
+    title: (
+      <>
+        <>1С: Бухгалтерия Предприятия 3.0, 1С: ЗУП, 1С: БГУ, 1С: УНФ, </>
+        <>1С: УТ, 1С: КА и др.</>
+      </>
+    ),
     highlight: true,
     footer: 'Стоимость 3000р/час',
   },
@@ -73,7 +130,7 @@ export function OutsourcingSection() {
             const isHighlighted = Boolean(item.highlight)
             return (
               <article
-                key={item.title}
+                key={item.id}
                 className={`${BASE_CARD_CLASSES} ${isHighlighted ? HIGHLIGHT_CARD_CLASSES : NEUTRAL_CARD_CLASSES}`}
               >
                 <div className="space-y-3">

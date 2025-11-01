@@ -26,4 +26,14 @@
   .body-text {
     @apply font-sans text-sm leading-relaxed text-white/80;
   }
+
+  .home-top-section {
+    background-size: 65% !important;
+  }
+
+  @media (max-width: 767px) {
+    .home-top-section {
+      background-size: 120% !important;
+    }
+  }
 }

@@ -32,15 +32,23 @@ export function TopSection() {
   return (
     <div id="top">
       <TopSectionView
-        title='Экосистема личностного и профессионального развития'
+        title={(
+          <>
+            Экосистема личностного
+            <br/>
+            и профессионального
+            <br/>
+            развития
+          </>
+        )}
         description="Помогаем ветеранам боевых действий успешно интегрироваться в мирную жизнь, чтобы их навыки и достоинства продолжали приносить пользу обществу."
         backgroundImage={heroBackground}
-        backgroundSize="65%"
         backgroundPosition="bottom right"
         backgroundRepeat="no-repeat"
         navItems={navItems}
         actions={actions}
-        className="bg-surface-section"
+        className="home-top-section bg-surface-section"
+        contentClassName="-translate-y-[25%] md:translate-y-0"
         logo={
           <div className="flex h-[46px] w-[160px] items-center justify-center">
             <img src={logo} alt="Ветеран. Группа компаний" className="h-full w-auto" />

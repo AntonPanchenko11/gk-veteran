@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 export interface AboutSectionCard {
   id: string
   title: string
-  description: string
+  description: ReactNode
   icon?: ReactNode
 }
 
@@ -36,7 +36,7 @@ function CardItem({ card }: { card: AboutSectionCard }) {
       <div className="pointer-events-none absolute inset-0 rounded-[26px] bg-gradient-to-b from-white/10 via-transparent to-transparent" />
       <div>
         <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-        <p className="body-text mt-3">{card.description}</p>
+        <div className="body-text mt-3">{card.description}</div>
       </div>
       {card.icon ? (
         <div className="mt-6 flex justify-end">
