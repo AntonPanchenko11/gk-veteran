@@ -9,7 +9,7 @@ function mergeClassNames(...values: ClassValue[]) {
 export interface ExtrasSectionItem {
   id: string
   title: string
-  description: string
+  description: ReactNode
   icon?: ReactNode
 }
 
@@ -60,7 +60,7 @@ export function ExtrasSection({
             >
               <div className="space-y-4 lg:max-w-3xl">
                 <h4 className="body-text text-lg font-semibold text-white">{item.title}</h4>
-                <p className="body-text text-white/80">{item.description}</p>
+                <div className="body-text text-white/80">{item.description}</div>
               </div>
               {item.icon ? (
                 <div className={mergeClassNames('flex shrink-0 items-center justify-center lg:h-full lg:justify-end', iconWrapperClassName)}>

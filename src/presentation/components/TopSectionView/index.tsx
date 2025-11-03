@@ -308,7 +308,7 @@ export function TopSectionView({
 
         <div className="mt-12 flex flex-1 items-center">
           <div className={mergeClassNames('flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:gap-24', contentClassName)}>
-            <div className="w-full space-y-8 text-white lg:basis-[60%] lg:max-w-[60%]">
+            <div className="w-full space-y-8 text-white lg:basis-[70%] lg:max-w-[70%]">
               {showBackButton ? (
                 <button
                   type="button"

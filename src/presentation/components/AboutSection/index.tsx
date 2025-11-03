@@ -10,7 +10,7 @@ export interface AboutSectionCard {
 interface AboutSectionProps {
   id?: string
   heading: string
-  description?: string
+  description?: ReactNode
   cardsHeading?: string
   icon?: ReactNode
   cards?: AboutSectionCard[]
@@ -23,9 +23,7 @@ function SectionHeader({ heading, description, icon }: Pick<AboutSectionProps, '
     <header className="space-y-5 text-white">
       {icon ? <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/5">{icon}</div> : null}
       <h2 className="heading-section">{heading}</h2>
-      {description ? (
-        <p className="body-text max-w-3xl">{description}</p>
-      ) : null}
+      {description ? <div className="body-text max-w-3xl">{description}</div> : null}
     </header>
   )
 }

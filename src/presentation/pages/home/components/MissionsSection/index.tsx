@@ -1,3 +1,4 @@
+import { Fragment, type JSX } from 'react'
 import missionImage1 from './assets/mission-1.svg'
 import missionImage2 from './assets/mission-2.svg'
 import missionImage3 from './assets/mission-3.svg'
@@ -7,44 +8,84 @@ import missionImage6 from './assets/mission-6.svg'
 import missionImage7 from './assets/mission-7.svg'
 
 type MissionCard = {
-  title: string
+  title: JSX.Element
   image: string
   gridClass: string
 }
 
 const missionCards: MissionCard[] = [
   {
-    title: 'Предоставление возможностей трудоустройства ветеранам СВО',
+    title: (
+      <Fragment>
+        Предоставление возможностей
+        трудоустройства ветеранам СВО
+      </Fragment>
+    ),
     image: missionImage1,
     gridClass: 'md:col-span-2',
   },
   {
-    title: 'Обеспечение достойной, высокооплачиваемой работы для людей, прошедших через боевые действия',
+    title: (
+      <Fragment>
+        Обеспечение достойной, высокооплачиваемой работы
+        <br/>
+        для людей, прошедших через боевые действия
+      </Fragment>
+    ),
     image: missionImage4 ,
     gridClass: 'md:col-span-2',
   },
   {
-    title: 'Вклад в процветание и развитие страны за счёт интеграции ветеранов в экономическую и социальную жизнь',
+    title: (
+      <Fragment>
+        Вклад в процветание и развитие страны
+        за счёт интеграции ветеранов 
+        <br/>
+        в экономическую и социальную жизнь
+      </Fragment>
+    ),
     image: missionImage6 ,
     gridClass: 'md:col-span-2 md:row-span-2',
   },
   {
-    title: 'Помощь в адаптации к жизни  в мирном обществе',
+    title: (
+      <Fragment>
+        Помощь в адаптации к жизни
+        в мирном обществе
+      </Fragment>
+    ),
     image: missionImage2,
     gridClass: 'md:col-span-2',
   },
   {
-    title: 'Содействие росту благосостояния ветеранов через их трудовую занятость',
+    title: (
+      <Fragment>
+        Содействие росту благосостояния ветеранов
+        через их трудовую занятость
+      </Fragment>
+    ),
     image: missionImage5,
     gridClass: 'md:col-span-2',
   },
   {
-    title: 'Подтверждение важности и востребованности ветеранов, несмотря на полученные ими травмы и увечья',
+    title: (
+      <Fragment>
+        Подтверждение важности и востребованности ветеранов
+        несмотря на полученные ими травмы и увечья
+      </Fragment>
+    ),
     image: missionImage3,
     gridClass: 'md:col-span-4',
   },
   {
-    title: 'Демонстрации того, что труд ветеранов необходим и ценен дляобщества сегодня и в будущем',
+    title: (
+      <Fragment>
+        Демонстрация того, что труд ветеранов необходим
+        и ценен
+        <br/>
+        для общества сегодня и в будущем
+      </Fragment>
+    ),
     image: missionImage7 ,
     gridClass: 'md:col-span-2',
   },
@@ -58,7 +99,7 @@ export function MissionsSection() {
         <div className="grid gap-6 md:auto-rows-[minmax(220px,_auto)] md:grid-cols-6">
           {missionCards.map(({ title, image, gridClass }) => (
             <article
-              key={title}
+              key={title.toString()}
               className={`relative flex min-h-[220px] w-full flex-col justify-end overflow-hidden rounded-[28px] bg-surface-section p-8 text-left text-white shadow-[0_40px_80px_-45px_rgba(0,0,0,0.9)] md:min-h-0 ${gridClass}`}
             >
               <img

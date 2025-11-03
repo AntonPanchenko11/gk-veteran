@@ -42,23 +42,27 @@ export function TopSection() {
             Информационные системы»
           </>
         )}
-      description="Предлагаем передовые решения в области информационных систем. Мы помогаем бизнесу повышать эффективность, автоматизировать процессы и адаптироваться к изменениям, используя инновационные технологии и лучшие практики."
-      backgroundImage={heroBackground}
-      showBackButton
-      backHref="/"
-      backLabel="< назад"
-      navItems={navItems}
-      badge={{
-        label: 'Компания имеет статус 1С:Франчайзи',
-        icon: <img src={oneCLogo} alt="Статус 1С:Франчайзи" className="h-6 w-6" />,
-      }}
-      actions={actions}
-        logo={
-          <div className="flex h-[46px] w-[160px] items-center justify-center">
-            <img src={logo} alt="Ветеран. Группа компаний" className="h-full w-auto" />
-          </div>
-        }
-      />
+        description={(
+          <>
+            Предлагаем передовые решения в области информационных систем. Мы помогаем бизнесу повышать эффективность, автоматизировать процессы и адаптироваться к изменениям, используя инновационные технологии и лучшие практики.
+          </>
+        )}
+        backgroundImage={heroBackground}
+        showBackButton
+        backHref="/"
+        backLabel="< назад"
+        navItems={navItems}
+        badge={{
+          label: 'Компания имеет статус 1С:Франчайзи',
+          icon: <img src={oneCLogo} alt="Статус 1С:Франчайзи" className="h-6 w-6" />,
+        }}
+        actions={actions}
+          logo={
+            <div className="flex h-[46px] w-[160px] items-center justify-center">
+              <img src={logo} alt="Ветеран. Группа компаний" className="h-full w-auto" />
+            </div>
+          }
+        />
     </div>
   )
 }
