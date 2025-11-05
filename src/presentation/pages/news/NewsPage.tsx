@@ -40,7 +40,10 @@ export function NewsPage() {
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-12 lg:py-14">
           <header className="mb-10 flex flex-col gap-6">
             <div className="flex items-center justify-between text-sm text-white/60">
-              <Link to="/" className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+              <Link
+                to={{ pathname: '/', hash: '#news' }}
+                className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white"
+              >
                 <span aria-hidden>←</span>
                 Назад
               </Link>

@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { TopSection } from './components/TopSection'
 import { AboutSection } from './components/AboutSection'
 import { MissionsSection } from './components/MissionsSection'
@@ -8,6 +10,17 @@ import { NewsSection } from './components/NewsSection'
 import { ContactsSection } from '../../components/ContactsSection'
 
 export function HomePage() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash === '#news') {
+      const target = document.getElementById('news')
+      if (target) {
+        target.scrollIntoView({ behavior: 'auto', block: 'start' })
+      }
+    }
+  }, [location.hash])
+
   return (
     <div className="bg-surface-noir text-forest-100">
       <TopSection />
