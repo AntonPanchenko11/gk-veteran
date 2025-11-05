@@ -13,11 +13,14 @@ export function HomePage() {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.hash === '#news') {
-      const target = document.getElementById('news')
-      if (target) {
-        target.scrollIntoView({ behavior: 'auto', block: 'start' })
-      }
+    const hash = location.hash.replace('#', '')
+    if (!hash) {
+      return
+    }
+
+    const target = document.getElementById(hash)
+    if (target) {
+      target.scrollIntoView({ behavior: 'auto', block: 'start' })
     }
   }, [location.hash])
 

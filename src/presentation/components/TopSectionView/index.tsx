@@ -205,6 +205,14 @@ export function TopSectionView({
     (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
 
+      if (backHref && backHref.includes('#')) {
+        const [rawPath, rawHash] = backHref.split('#')
+        const pathname = rawPath && rawPath.length > 0 ? rawPath : '/'
+        const hash = rawHash ? `#${rawHash}` : undefined
+        navigate({ pathname, hash }, { replace: false })
+        return
+      }
+
       const canGoBack = typeof window.history.state?.idx === 'number' && window.history.state.idx > 0
 
       if (canGoBack) {

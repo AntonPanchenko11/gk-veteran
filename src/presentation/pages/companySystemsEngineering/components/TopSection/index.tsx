@@ -45,7 +45,7 @@ export function TopSection() {
         )}
       backgroundImage={heroBackground}
       showBackButton
-      backHref="/"
+      backHref="/#group"
       backLabel="< назад"
       navItems={navItems}
       actions={actions}

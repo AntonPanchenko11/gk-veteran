@@ -17,11 +17,12 @@ export function TopSection() {
   )
 
   const navItems = [
-    { label: 'О нас', href: '#principles', onClick: scrollToAnchor('principles') },
-    { label: 'Задачи', href: '#missions', onClick: scrollToAnchor('missions') },
+    { label: 'О компании', href: '#about', onClick: scrollToAnchor('about') },
+    { label: 'Наши миссии', href: '#missions', onClick: scrollToAnchor('missions') },
     { label: 'Группа компаний', href: '#group', onClick: scrollToAnchor('group') },
     { label: 'Ценности', href: '#values', onClick: scrollToAnchor('values') },
     { label: 'Истории', href: '#stories', onClick: scrollToAnchor('stories') },
+    { label: 'Новости', href: '#news', onClick: scrollToAnchor('news') },
     { label: 'Контакты', href: '#contacts', onClick: scrollToAnchor('contacts') },
   ]
 

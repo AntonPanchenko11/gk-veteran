@@ -24,6 +24,7 @@ export function TopSection() {
     { label: 'Аутсорсинг', href: '#outsourcing', onClick: scrollToAnchor('outsourcing') },
     { label: 'Продукты', href: '#products', onClick: scrollToAnchor('products') },
     { label: 'Доп. услуги', href: '#extras', onClick: scrollToAnchor('extras') },
+    { label: 'Новости', href: '/#news', onClick: scrollToAnchor('news') },
     { label: 'Заключение', href: '#conclusion', onClick: scrollToAnchor('conclusion') },
     { label: 'Контакты', href: '#contacts', onClick: scrollToAnchor('contacts') },
   ]
@@ -49,7 +50,7 @@ export function TopSection() {
         )}
         backgroundImage={heroBackground}
         showBackButton
-        backHref="/"
+        backHref="/#group"
         backLabel="< назад"
         navItems={navItems}
         badge={{
