@@ -4,6 +4,7 @@ import { MissionsSection } from './components/MissionsSection'
 import { GroupSection } from './components/GroupSection'
 import { ValuesSection } from './components/ValuesSection'
 import { StoriesSection } from './components/StoriesSection'
+import { NewsSection } from './components/NewsSection'
 import { ContactsSection } from '../../components/ContactsSection'
 
 export function HomePage() {
@@ -15,6 +16,7 @@ export function HomePage() {
       <GroupSection />
       <ValuesSection />
       <StoriesSection />
+      <NewsSection />
       <ContactsSection />
     </div>
   )

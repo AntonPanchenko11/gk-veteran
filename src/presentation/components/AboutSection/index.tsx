@@ -38,7 +38,7 @@ function CardItem({ card }: { card: AboutSectionCard }) {
       </div>
       {card.icon ? (
         <div className="mt-6 flex justify-end">
-          <div className="h-[96px] w-[96px]">{card.icon}</div>
+          <div className="h-[125px] w-[125px]">{card.icon}</div>
         </div>
       ) : null}
     </article>

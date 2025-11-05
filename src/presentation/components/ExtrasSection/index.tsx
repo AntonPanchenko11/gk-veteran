@@ -64,7 +64,7 @@ export function ExtrasSection({
               </div>
               {item.icon ? (
                 <div className={mergeClassNames('flex shrink-0 items-center justify-center lg:h-full lg:justify-end', iconWrapperClassName)}>
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl text-highlight shadow-inner lg:h-24 lg:w-24">{item.icon}</div>
+                  <div className="flex h-[96px] w-[96px] items-center justify-center rounded-2xl text-highlight shadow-inner lg:h-[120px] lg:w-[120px]">{item.icon}</div>
                 </div>
               ) : null}
             </article>
