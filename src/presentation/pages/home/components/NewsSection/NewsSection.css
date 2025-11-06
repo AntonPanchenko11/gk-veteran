@@ -46,3 +46,13 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 639px) {
+  .news-title {
+    min-height: auto;
+  }
+
+  .news-description {
+    -webkit-line-clamp: 5;
+  }
+}

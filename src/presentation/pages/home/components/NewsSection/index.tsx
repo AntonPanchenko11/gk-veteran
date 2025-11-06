@@ -3,22 +3,40 @@ import { Link } from 'react-router-dom'
 import { NEWS_ITEMS } from './newsItems'
 import './NewsSection.css'
 
-const VISIBLE_NEWS_COUNT = 3
 const NAV_BUTTON_CLASS =
   'flex h-10 w-10 flex-shrink-0 items-center justify-center self-center rounded-full border border-highlight/50 bg-surface-base/90 text-highlight transition hover:bg-highlight/15 disabled:cursor-not-allowed disabled:opacity-30'
 const READ_MORE_BUTTON_CLASS =
   'inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/95 px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-text-contrast transition hover:bg-highlight hover:text-text-contrast'
 const CARD_GAP_PX = 16
+const DESKTOP_VISIBLE_NEWS_COUNT = 3
+
+const getVisibleCardCount = (width: number) => {
+  if (width < 640) {
+    return 1
+  }
+
+  if (width < 1024) {
+    return 2
+  }
+
+  return DESKTOP_VISIBLE_NEWS_COUNT
+}
 
 export function NewsSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [cardStepWidth, setCardStepWidth] = useState(0)
   const [maxCardHeight, setMaxCardHeight] = useState<number | null>(null)
+  const [visibleCards, setVisibleCards] = useState(() => {
+    if (typeof window === 'undefined') {
+      return DESKTOP_VISIBLE_NEWS_COUNT
+    }
+    return getVisibleCardCount(window.innerWidth)
+  })
   const trackRef = useRef<HTMLDivElement | null>(null)
 
   const totalItems = NEWS_ITEMS.length
-  const maxStartIndex = Math.max(totalItems - VISIBLE_NEWS_COUNT, 0)
-  const isCarouselActive = totalItems > VISIBLE_NEWS_COUNT
+  const maxStartIndex = Math.max(totalItems - visibleCards, 0)
+  const isCarouselActive = totalItems > visibleCards
 
   useEffect(() => {
     setActiveIndex((prev) => Math.min(prev, maxStartIndex))
@@ -63,7 +81,33 @@ export function NewsSection() {
     }
   }, [])
 
-  const trackStyle = useMemo(() => {
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const updateVisibleCards = () => {
+      setVisibleCards(getVisibleCardCount(window.innerWidth))
+    }
+
+    updateVisibleCards()
+    window.addEventListener('resize', updateVisibleCards)
+
+    return () => {
+      window.removeEventListener('resize', updateVisibleCards)
+    }
+  }, [])
+
+  const gridAutoColumnWidth = useMemo(() => {
+    if (visibleCards <= 1) {
+      return '100%'
+    }
+
+    const totalGap = (visibleCards - 1) * CARD_GAP_PX
+    return `calc((100% - ${totalGap}px) / ${visibleCards})`
+  }, [visibleCards])
+
+  const transformStyle = useMemo(() => {
     if (!cardStepWidth) {
       return undefined
     }
@@ -74,6 +118,17 @@ export function NewsSection() {
       transition: 'transform 750ms cubic-bezier(0.25, 0.9, 0.3, 1)',
     }
   }, [activeIndex, cardStepWidth, maxStartIndex])
+
+  const trackStyle = useMemo(() => {
+    if (!transformStyle) {
+      return { gridAutoColumns: gridAutoColumnWidth }
+    }
+
+    return {
+      ...transformStyle,
+      gridAutoColumns: gridAutoColumnWidth,
+    }
+  }, [gridAutoColumnWidth, transformStyle])
 
   const cardMinHeightStyle = maxCardHeight ? { minHeight: `${maxCardHeight}px` } : undefined
   const canScrollPrev = isCarouselActive && activeIndex > 0
@@ -120,7 +175,7 @@ export function NewsSection() {
               <div className="relative flex-1 overflow-hidden">
                 <div
                   ref={trackRef}
-                  className="grid min-w-full grid-flow-col auto-cols-[calc((100%-32px)/3)] items-stretch gap-4"
+                  className="grid min-w-full grid-flow-col items-stretch gap-4"
                   style={trackStyle}
                 >
                   {NEWS_ITEMS.map((news) => {
@@ -136,7 +191,7 @@ export function NewsSection() {
                         <img
                           src={imageSrc}
                           alt={news.title}
-                          className="mb-6 h-64 w-full rounded-2xl object-cover"
+                          className="mb-6 h-48 w-full rounded-2xl object-cover sm:h-56 lg:h-64"
                           loading="lazy"
                           decoding="async"
                         />

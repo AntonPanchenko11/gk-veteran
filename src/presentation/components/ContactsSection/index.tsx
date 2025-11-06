@@ -13,7 +13,12 @@ export function ContactsSection({ className, contentClassName }: ContactsSection
         <div className="mt-8 grid gap-10 md:grid-cols-3">
           <div>
             <p className="body-text">Телефон</p>
-            <p className="mt-2 text-lg font-semibold text-white">8-989-633-67-99</p>
+            <a
+              href="tel:+79896336799"
+              className="mt-2 block text-lg font-semibold text-highlight transition hover:text-highlight/80"
+            >
+              8-989-633-67-99
+            </a>
             <p className="mt-6 body-text">Email</p>
             <a href="mailto:ceo@гк-ветеран.рф" className="mt-2 block text-lg font-semibold text-highlight">
               ceo@гк-ветеран.рф
