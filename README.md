@@ -46,18 +46,25 @@ Tailwind CSS используется с кастомной палитрой в 
 
 Проект настроен для репозитория `gk-veteran`:
 
-- в `vite.config.ts` задан `base: '/gk-veteran/'`, чтобы ресурсы искались с правильным префиксом;
+- переменной окружения `VITE_BASE_PATH` (или одноимённым значением в `.env`) задайте `'/gk-veteran/'`, чтобы Vite собирал бандл с правильным префиксом;
 - `BrowserRouter` получает `basename` из `import.meta.env.BASE_URL`, поэтому маршруты работают как локально, так и на Pages;
 - в `public/404.html` включён редирект на корень для SPA-маршрутов.
 
 Публикация вручную:
 
 ```bash
-npm run build
+VITE_BASE_PATH=/gk-veteran/ npm run build
 npx gh-pages -d dist
 ```
 
 Либо настройте GitHub Action с загрузкой содержимого `dist/` в ветку `gh-pages`.
+
+## Деплой на Netlify
+
+- Базовый путь по умолчанию равен `'/'`, поэтому дополнительная настройка `VITE_BASE_PATH` не нужна.
+- Build command: `npm run build`. Publish directory: `dist`.
+- Файл `public/_redirects` содержит правило `/* /index.html 200`, которое перекладывает все запросы SPA на `index.html`.
+- После билдов Netlify сразу развёртывает содержимое `dist`, поэтому достаточно подключить репозиторий и указать основную ветку.
 
 ## Структура каталогов
 
