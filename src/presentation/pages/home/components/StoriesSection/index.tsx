@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 type StorySource = {
   title: string
@@ -57,8 +57,20 @@ function buildStoryEntities(sources: ReadonlyArray<StorySource>) {
   return sources.map((source) => new StoryEntity(source))
 }
 
-function useStoryAccordion(_stories: StoryEntity[]) {
-  const [openedTitle, setOpenedTitle] = useState<string>('')
+function useStoryAccordion(stories: StoryEntity[]) {
+  const [openedTitle, setOpenedTitle] = useState<string>(() => stories[0]?.title ?? '')
+
+  useEffect(() => {
+    const fallbackTitle = stories[0]?.title ?? ''
+
+    setOpenedTitle((currentTitle) => {
+      if (stories.length === 0) {
+        return ''
+      }
+
+      return stories.some((story) => story.title === currentTitle) ? currentTitle : fallbackTitle
+    })
+  }, [stories])
 
   const toggle = useCallback((title: string) => {
     setOpenedTitle((current) => (current === title ? '' : title))

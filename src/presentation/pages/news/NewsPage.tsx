@@ -18,6 +18,10 @@ export function NewsPage() {
     }
   }, [newsId])
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [newsId])
+
   if (!news) {
     return <Navigate to={`/news/${NEWS_ITEMS[0].id}`} replace />
   }
@@ -37,10 +41,6 @@ export function NewsPage() {
 
   const prevButtonClass = prevItem ? NAV_BUTTON_BASE : `${NAV_BUTTON_BASE} pointer-events-none opacity-40`
   const nextButtonClass = nextItem ? NAV_BUTTON_BASE : `${NAV_BUTTON_BASE} pointer-events-none opacity-40`
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' })
-  }, [newsId])
 
   return (
     <>

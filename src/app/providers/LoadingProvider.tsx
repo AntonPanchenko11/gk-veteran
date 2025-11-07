@@ -1,13 +1,6 @@
-import { createContext, useCallback, useContext, useMemo, useState, type PropsWithChildren } from 'react'
+import { useCallback, useMemo, useState, type PropsWithChildren } from 'react'
 import { LoadingOverlay } from '../../presentation/components/LoadingOverlay'
-
-type LoadingContextValue = {
-  isLoading: boolean
-  showLoading: () => void
-  hideLoading: () => void
-}
-
-const LoadingContext = createContext<LoadingContextValue | undefined>(undefined)
+import { LoadingContext } from './loadingContext'
 
 export function LoadingProvider({ children }: PropsWithChildren) {
   const [isLoading, setIsLoading] = useState(false)
@@ -35,14 +28,4 @@ export function LoadingProvider({ children }: PropsWithChildren) {
       {isLoading ? <LoadingOverlay /> : null}
     </LoadingContext.Provider>
   )
-}
-
-export function useLoading() {
-  const context = useContext(LoadingContext)
-
-  if (!context) {
-    throw new Error('useLoading must be used within a LoadingProvider')
-  }
-
-  return context
 }

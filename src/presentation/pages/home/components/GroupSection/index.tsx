@@ -4,9 +4,9 @@ import oneCLogoIcon from './assets/oneCLogo.svg'
 import systemEngineeringIcon from './assets/system-engineering.svg'
 import rightsProtectionIcon from './assets/rights-protection.svg'
 import trainingCenterIcon from './assets/training-center.svg'
-import { useLoading } from '../../../../../app/providers/LoadingProvider'
+import { useLoading } from '../../../../../app/providers/loadingContext'
 
-export type CompanyDetails = {
+type CompanyDetails = {
   hero: {
     badgeLabel?: string
     badgeNote?: string
@@ -29,7 +29,7 @@ export type CompanyDetails = {
   conclusion: string
 }
 
-export type Company = {
+type Company = {
   name: string
   description: string
   slug: string
@@ -38,7 +38,7 @@ export type Company = {
   icon?: string
 }
 
-export const companies: Company[] = [
+const companies: Company[] = [
   {
     name: 'ООО «Ветеран. Информационные системы»',
     description:
