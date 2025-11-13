@@ -25,7 +25,7 @@ export function ContactsSection({ className, contentClassName }: ContactsSection
             </a>
             <p className="mt-6 body-text">Юридический адрес</p>
             <p className="mt-2 text-lg font-semibold text-white">
-              344045, г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51
+              344045, г. Ростов-на-Дону, ул. Миронова, 2Д
             </p>
           </div>
 

@@ -58,17 +58,15 @@ function buildStoryEntities(sources: ReadonlyArray<StorySource>) {
 }
 
 function useStoryAccordion(stories: StoryEntity[]) {
-  const [openedTitle, setOpenedTitle] = useState<string>(() => stories[0]?.title ?? '')
+  const [openedTitle, setOpenedTitle] = useState<string>('')
 
   useEffect(() => {
-    const fallbackTitle = stories[0]?.title ?? ''
-
     setOpenedTitle((currentTitle) => {
-      if (stories.length === 0) {
+      if (!currentTitle) {
         return ''
       }
 
-      return stories.some((story) => story.title === currentTitle) ? currentTitle : fallbackTitle
+      return stories.some((story) => story.title === currentTitle) ? currentTitle : ''
     })
   }, [stories])
 
